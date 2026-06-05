@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SwiftRide – Book bus tickets instantly. Compare operators, choose seats, and travel smarter." />
+  <meta name="keywords" content="bus ticket booking, travel, routes, online bus reservation" />
+  <title>SwiftRide – Book Your Bus Tickets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER / NAV ===================== -->
+  <header class="header" role="banner">
+    <nav class="nav container" aria-label="Main navigation">
+      <!-- Logo -->
+      <a href="#" class="logo" aria-label="SwiftRide Home">
+        <span class="logo-icon" aria-hidden="true">🚌</span>
+        <span class="logo-text">Swift<span class="logo-accent">Ride</span></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#routes" class="nav-link">Routes</a></li>
+        <li><a href="#offers" class="nav-link">Offers</a></li>
+        <li><a href="#bookings" class="nav-link">My Bookings</a></li>
+        <li><a href="#footer" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Auth Buttons -->
+      <div class="nav-auth">
+        <a href="#" class="btn btn-ghost" aria-label="Login">Login</a>
+        <a href="#" class="btn btn-primary" aria-label="Sign Up">Sign Up</a>
+      </div>
+
+      <!-- Hamburger Toggle (CSS-only) -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-input" aria-label="Toggle navigation menu" />
+      <label for="menu-toggle" class="hamburger" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </label>
+
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <ul role="list">
+          <li><a href="#hero" class="mobile-link">Home</a></li>
+          <li><a href="#routes" class="mobile-link">Routes</a></li>
+          <li><a href="#offers" class="mobile-link">Offers</a></li>
+          <li><a href="#bookings" class="mobile-link">My Bookings</a></li>
+          <li><a href="#footer" class="mobile-link">Contact</a></li>
+        </ul>
+        <div class="mobile-auth">
+          <a href="#" class="btn btn-ghost">Login</a>
+          <a href="#" class="btn btn-primary">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===================== HERO SECTION ===================== -->
+    <section class="hero" id="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-circle c1"></div>
+        <div class="hero-circle c2"></div>
+        <div class="hero-road" aria-hidden="true"></div>
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <span class="hero-badge">🎉 New routes added every week</span>
+          <h1 id="hero-heading" class="hero-title">
+            Book Your Bus<br/>
+            <span class="hero-highlight">Tickets Easily</span>
+          </h1>
+          <p class="hero-subtitle">
+            Compare operators, pick your seat, and travel in comfort.
+            Over 500+ routes across the country at unbeatable fares.
+          </p>
+          <div class="hero-stats">
+            <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Routes</span></div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat"><span class="stat-num">200+</span><span class="stat-label">Operators</span></div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat"><span class="stat-num">2M+</span><span class="stat-label">Travelers</span></div>
+          </div>
+        </div>
+
+        <!-- Search Card -->
+        <div class="search-card glass-card" role="search" aria-label="Search for buses">
+          <div class="search-card-header">
+            <h2 class="search-card-title">Find Your Bus</h2>
+            <div class="search-tabs">
+              <button class="search-tab active" type="button">One Way</button>
+              <button class="search-tab" type="button">Round Trip</button>
+            </div>
+          </div>
+
+          <div class="search-form">
+            <div class="search-row">
+              <div class="form-group">
+                <label for="from-city" class="form-label">From</label>
+                <div class="input-wrapper">
+                  <span class="input-icon" aria-hidden="true">📍</span>
+                  <input type="text" id="from-city" class="form-input" placeholder="Departure City" aria-label="Departure city" />
+                </div>
+              </div>
+
+              <button class="swap-btn" type="button" aria-label="Swap cities" title="Swap cities">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 16V4m0 0L3 8m4-4l4 4"/><path d="M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>
+              </button>
+
+              <div class="form-group">
+                <label for="to-city" class="form-label">To</label>
+                <div class="input-wrapper">
+                  <span class="input-icon" aria-hidden="true">🏁</span>
+                  <input type="text" id="to-city" class="form-input" placeholder="Destination City" aria-label="Destination city" />
+                </div>
+              </div>
+            </div>
+
+            <div class="search-row">
+              <div class="form-group">
+                <label for="journey-date" class="form-label">Journey Date</label>
+                <div class="input-wrapper">
+                  <span class="input-icon" aria-hidden="true">📅</span>
+                  <input type="date" id="journey-date" class="form-input" aria-label="Journey date" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="return-date" class="form-label">Return Date <span class="optional">(Optional)</span></label>
+                <div class="input-wrapper">
+                  <span class="input-icon" aria-hidden="true">📅</span>
+                  <input type="date" id="return-date" class="form-input" aria-label="Return date (optional)" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="passengers" class="form-label">Passengers</label>
+                <div class="input-wrapper">
+                  <span class="input-icon" aria-hidden="true">👤</span>
+                  <select id="passengers" class="form-input form-select" aria-label="Number of passengers">
+                    <option value="1">1 Passenger</option>
+                    <option value="2">2 Passengers</option>
+                    <option value="3">3 Passengers</option>
+                    <option value="4">4 Passengers</option>
+                    <option value="5">5+ Passengers</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-search" type="button" aria-label="Search available buses">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              Search Buses
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TRUST BADGES ===================== -->
+    <section class="trust-section" aria-label="Trust indicators">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-item">
+            <span class="trust-icon" aria-hidden="true">🔒</span>
+            <div>
+              <strong>Secure Payments</strong>
+              <p>100% encrypted transactions</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon" aria-hidden="true">⚡</span>
+            <div>
+              <strong>Instant Booking</strong>
+              <p>Tickets in under 60 seconds</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon" aria-hidden="true">🔄</span>
+            <div>
+              <strong>Easy Cancellation</strong>
+              <p>Hassle-free refund policy</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon" aria-hidden="true">🎧</span>
+            <div>
+              <strong>24/7 Support</strong>
+              <p>Always here to help you</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== POPULAR ROUTES ===================== -->
+    <section class="section routes-section" id="routes" aria-labelledby="routes-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">🗺️ Popular Routes</span>
+          <h2 id="routes-heading" class="section-title">Top Travel Corridors</h2>
+          <p class="section-subtitle">Most-booked routes with the best fares and operators</p>
+        </div>
+
+        <div class="routes-grid">
+          <!-- Route Card 1 -->
+          <article class="route-card" aria-label="Route: Colombo to Kandy">
+            <div class="route-img route-img-1" aria-hidden="true">
+              <span class="route-tag">Popular</span>
+            </div>
+            <div class="route-body">
+              <div class="route-path">
+                <span class="route-city">Colombo</span>
+                <span class="route-arrow" aria-hidden="true">→</span>
+                <span class="route-city">Kandy</span>
+              </div>
+              <div class="route-meta">
+                <span>⏱ 3h 30m</span>
+                <span>🚌 12 buses/day</span>
+              </div>
+              <div class="route-footer">
+                <div>
+                  <span class="price-from">From</span>
+                  <span class="price-value">LKR 450</span>
+                </div>
+                <a href="#buses" class="btn btn-outline-sm">View Buses</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Route Card 2 -->
+          <article class="route-card" aria-label="Route: Colombo to Galle">
+            <div class="route-img route-img-2" aria-hidden="true">
+              <span class="route-tag">Scenic</span>
+            </div>
+            <div class="route-body">
+              <div class="route-path">
+                <span class="route-city">Colombo</span>
+                <span class="route-arrow" aria-hidden="true">→</span>
+                <span class="route-city">Galle</span>
+              </div>
+              <div class="route-meta">
+                <span>⏱ 2h 15m</span>
+                <span>🚌 18 buses/day</span>
+              </div>
+              <div class="route-footer">
+                <div>
+                  <span class="price-from">From</span>
+                  <span class="price-value">LKR 380</span>
+                </div>
+                <a href="#buses" class="btn btn-outline-sm">View Buses</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Route Card 3 -->
+          <article class="route-card" aria-label="Route: Kandy to Nuwara Eliya">
+            <div class="route-img route-img-3" aria-hidden="true">
+              <span class="route-tag">Hill Country</span>
+            </div>
+            <div class="route-body">
+              <div class="route-path">
+                <span class="route-city">Kandy</span>
+                <span class="route-arrow" aria-hidden="true">→</span>
+                <span class="route-city">Nuwara Eliya</span>
+              </div>
+              <div class="route-meta">
+                <span>⏱ 2h 45m</span>
+                <span>🚌 8 buses/day</span>
+              </div>
+              <div class="route-footer">
+                <div>
+                  <span class="price-from">From</span>
+                  <span class="price-value">LKR 320</span>
+                </div>
+                <a href="#buses" class="btn btn-outline-sm">View Buses</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Route Card 4 -->
+          <article class="route-card" aria-label="Route: Colombo to Jaffna">
+            <div class="route-img route-img-4" aria-hidden="true">
+              <span class="route-tag">Long Distance</span>
+            </div>
+            <div class="route-body">
+              <div class="route-path">
+                <span class="route-city">Colombo</span>
+                <span class="route-arrow" aria-hidden="true">→</span>
+                <span class="route-city">Jaffna</span>
+              </div>
+              <div class="route-meta">
+                <span>⏱ 7h 00m</span>
+                <span>🚌 6 buses/day</span>
+              </div>
+              <div class="route-footer">
+                <div>
+                  <span class="price-from">From</span>
+                  <span class="price-value">LKR 950</span>
+                </div>
+                <a href="#buses" class="btn btn-outline-sm">View Buses</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Route Card 5 -->
+          <article class="route-card" aria-label="Route: Galle to Matara">
+            <div class="route-img route-img-5" aria-hidden="true">
+              <span class="route-tag">Coastal</span>
+            </div>
+            <div class="route-body">
+              <div class="route-path">
+                <span class="route-city">Galle</span>
+                <span class="route-arrow" aria-hidden="true">→</span>
+                <span class="route-city">Matara</span>
+              </div>
+              <div class="route-meta">
+                <span>⏱ 1h 00m</span>
+                <span>🚌 22 buses/day</span>
+              </div>
+              <div class="route-footer">
+                <div>
+                  <span class="price-from">From</span>
+                  <span class="price-value">LKR 150</span>
+                </div>
+                <a href="#buses" class="btn btn-outline-sm">View Buses</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Route Card 6 -->
+          <article class="route-card" aria-label="Route: Colombo to Anuradhapura">
+            <div class="route-img route-img-6" aria-hidden="true">
+              <span class="route-tag">Heritage</span>
+            </div>
+            <div class="route-body">
+              <div class="route-path">
+                <span class="route-city">Colombo</span>
+                <span class="route-arrow" aria-hidden="true">→</span>
+                <span class="route-city">Anuradhapura</span>
+              </div>
+              <div class="route-meta">
+                <span>⏱ 4h 30m</span>
+                <span>🚌 10 buses/day</span>
+              </div>
+              <div class="route-footer">
+                <div>
+                  <span class="price-from">From</span>
+                  <span class="price-value">LKR 650</span>
+                </div>
+                <a href="#buses" class="btn btn-outline-sm">View Buses</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== AVAILABLE BUSES ===================== -->
+    <section class="section buses-section" id="buses" aria-labelledby="buses-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">🚌 Available Buses</span>
+          <h2 id="buses-heading" class="section-title">Choose Your Ride</h2>
+          <p class="section-subtitle">Colombo → Kandy · Today · 2 Passengers</p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar" role="group" aria-label="Filter buses">
+          <button class="filter-btn active" type="button">All</button>
+          <button class="filter-btn" type="button">AC</button>
+          <button class="filter-btn" type="button">Non-AC</button>
+          <button class="filter-btn" type="button">Sleeper</button>
+          <button class="filter-btn" type="button">Luxury</button>
+        </div>
+
+        <div class="buses-list" role="list">
+
+          <!-- Bus Card 1 -->
+          <article class="bus-card" role="listitem" aria-label="Lanka Travels Express bus">
+            <div class="bus-operator">
+              <div class="operator-logo" aria-hidden="true">LT</div>
+              <div>
+                <h3 class="operator-name">Lanka Travels Express</h3>
+                <div class="bus-badges">
+                  <span class="badge badge-ac">AC</span>
+                  <span class="badge badge-luxury">Luxury</span>
+                  <span class="badge badge-rating">⭐ 4.8</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bus-times">
+              <div class="time-block">
+                <span class="time">06:00</span>
+                <span class="city">Colombo</span>
+              </div>
+              <div class="duration-line">
+                <span class="duration-label">3h 30m</span>
+                <div class="duration-bar" aria-hidden="true"><div class="duration-dot"></div></div>
+              </div>
+              <div class="time-block">
+                <span class="time">09:30</span>
+                <span class="city">Kandy</span>
+              </div>
+            </div>
+
+            <div class="bus-info">
+              <div class="info-chip">
+                <span aria-hidden="true">💺</span>
+                <span><strong>18</strong> seats left</span>
+              </div>
+              <div class="info-chip">
+                <span aria-hidden="true">🌬️</span>
+                <span>Free WiFi</span>
+              </div>
+              <div class="info-chip">
+                <span aria-hidden="true">🔌</span>
+                <span>Charging</span>
+              </div>
+            </div>
+
+            <div class="bus-price-action">
+              <div>
+                <span class="bus-price-old">LKR 600</span>
+                <span class="bus-price">LKR 480</span>
+                <span class="bus-per">per seat</span>
+              </div>
+              <a href="#seat-selection" class="btn btn-primary">Book Now</a>
+            </div>
+          </article>
+
+          <!-- Bus Card 2 -->
+          <article class="bus-card" role="listitem" aria-label="Ceylon Swift bus">
+            <div class="bus-operator">
+              <div class="operator-logo op-orange" aria-hidden="true">CS</div>
+              <div>
+                <h3 class="operator-name">Ceylon Swift</h3>
+                <div class="bus-badges">
+                  <span class="badge badge-ac">AC</span>
+                  <span class="badge badge-sleeper">Sleeper</span>
+                  <span class="badge badge-rating">⭐ 4.6</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bus-times">
+              <div class="time-block">
+                <span class="time">08:30</span>
+                <span class="city">Colombo</span>
+              </div>
+              <div class="duration-line">
+                <span class="duration-label">3h 30m</span>
+                <div class="duration-bar" aria-hidden="true"><div class="duration-dot"></div></div>
+              </div>
+              <div class="time-block">
+                <span class="time">12:00</span>
+                <span class="city">Kandy</span>
+              </div>
+            </div>
+
+            <div class="bus-info">
+              <div class="info-chip">
+                <span aria-hidden="true">💺</span>
+                <span><strong>5</strong> seats left</span>
+              </div>
+              <div class="info-chip">
+                <span aria-hidden="true">🍱</span>
+                <span>Meal Incl.</span>
+              </div>
+              <div class="info-chip">
+                <span aria-hidden="true">📺</span>
+                <span>Entertainment</span>
+              </div>
+            </div>
+
+            <div class="bus-price-action">
+              <div>
+                <span class="bus-price">LKR 750</span>
+                <span class="bus-per">per seat</span>
+              </div>
+              <a href="#seat-selection" class="btn btn-primary">Book Now</a>
+            </div>
+          </article>
+
+          <!-- Bus Card 3 -->
+          <article class="bus-card" role="listitem" aria-label="Island Liner bus">
+            <div class="bus-operator">
+              <div class="operator-logo op-green" aria-hidden="true">IL</div>
+              <div>
+                <h3 class="operator-name">Island Liner</h3>
+                <div class="bus-badges">
+                  <span class="badge badge-nonac">Non-AC</span>
+                  <span class="badge badge-rating">⭐ 4.3</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bus-times">
+              <div class="time-block">
+                <span class="time">10:00</span>
+                <span class="city">Colombo</span>
+              </div>
+              <div class="duration-line">
+                <span class="duration-label">3h 45m</span>
+                <div class="duration-bar" aria-hidden="true"><div class="duration-dot"></div></div>
+              </div>
+              <div class="time-block">
+                <span class="time">13:45</span>
+                <span class="city">Kandy</span>
+              </div>
+            </div>
+
+            <div class="bus-info">
+              <div class="info-chip">
+                <span aria-hidden="true">💺</span>
+                <span><strong>32</strong> seats left</span>
+              </div>
+              <div class="info-chip">
+                <span aria-hidden="true">🎒</span>
+                <span>Luggage OK</span>
+              </div>
+            </div>
+
+            <div class="bus-price-action">
+              <div>
+                <span class="bus-price">LKR 320</span>
+                <span class="bus-per">per seat</span>
+              </div>
+              <a href="#seat-selection" class="btn btn-primary">Book Now</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SEAT SELECTION ===================== -->
+    <section class="section seat-section" id="seat-selection" aria-labelledby="seat-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">💺 Seat Selection</span>
+          <h2 id="seat-heading" class="section-title">Pick Your Seat</h2>
+          <p class="section-subtitle">Lanka Travels Express · Colombo → Kandy · 06:00</p>
+        </div>
+
+        <div class="seat-layout-wrapper">
+          <div class="seat-legend" role="list" aria-label="Seat legend">
+            <div class="legend-item" role="listitem">
+              <div class="legend-seat seat-available" aria-label="Available seat example"></div>
+              <span>Available</span>
+            </div>
+            <div class="legend-item" role="listitem">
+              <div class="legend-seat seat-selected" aria-label="Selected seat example"></div>
+              <span>Selected</span>
+            </div>
+            <div class="legend-item" role="listitem">
+              <div class="legend-seat seat-reserved" aria-label="Reserved seat example"></div>
+              <span>Reserved</span>
+            </div>
+          </div>
+
+          <div class="seat-bus-container" role="region" aria-label="Bus seating layout">
+            <!-- Driver -->
+            <div class="bus-front" aria-label="Front of bus">
+              <div class="driver-area" aria-label="Driver position">
+                <span class="driver-icon" aria-hidden="true">🧑‍✈️</span>
+                <span>Driver</span>
+              </div>
+              <div class="bus-door" aria-label="Bus door" aria-hidden="true">Door</div>
+            </div>
+
+            <!-- Seat Grid -->
+            <div class="seat-grid" role="group" aria-label="Seat selection grid">
+              <!-- Row labels -->
+              <div class="seat-row" role="row">
+                <span class="row-label" aria-hidden="true">A</span>
+                <input type="checkbox" class="seat-input" id="sA1" /><label class="seat seat-available" for="sA1" aria-label="Seat A1 available">A1</label>
+                <input type="checkbox" class="seat-input" id="sA2" /><label class="seat seat-available" for="sA2" aria-label="Seat A2 available">A2</label>
+                <div class="seat-aisle" aria-hidden="true"></div>
+                <input type="checkbox" class="seat-input" id="sA3" /><label class="seat seat-available" for="sA3" aria-label="Seat A3 available">A3</label>
+                <input type="checkbox" class="seat-input" id="sA4" /><label class="seat seat-available" for="sA4" aria-label="Seat A4 available">A4</label>
+              </div>
+
+              <div class="seat-row" role="row">
+                <span class="row-label" aria-hidden="true">B</span>
+                <label class="seat seat-reserved" aria-label="Seat B1 reserved" aria-disabled="true">B1</label>
+                <input type="checkbox" class="seat-input" id="sB2" /><label class="seat seat-available" for="sB2" aria-label="Seat B2 available">B2</label>
+                <div class="seat-aisle" aria-hidden="true"></div>
+                <label class="seat seat-reserved" aria-label="Seat B3 reserved" aria-disabled="true">B3</label>
+                <input type="checkbox" class="seat-input" id="sB4" /><label class="seat seat-available" for="sB4" aria-label="Seat B4 available">B4</label>
+              </div>
+
+              <div class="seat-row" role="row">
+                <span class="row-label" aria-hidden="true">C</span>
+                <input type="checkbox" class="seat-input" id="sC1" checked /><label class="seat seat-selected-demo" for="sC1" aria-label="Seat C1 selected">C1</label>
+                <input type="checkbox" class="seat-input" id="sC2" /><label class="seat seat-available" for="sC2" aria-label="Seat C2 available">C2</label>
+                <div class="seat-aisle" aria-hidden="true"></div>
+                <input type="checkbox" class="seat-input" id="sC3" /><label class="seat seat-available" for="sC3" aria-label="Seat C3 available">C3</label>
+                <label class="seat seat-reserved" aria-label="Seat C4 reserved" aria-disabled="true">C4</label>
+              </div>
+
+              <div class="seat-row" role="row">
+                <span class="row-label" aria-hidden="true">D</span>
+                <input type="checkbox" class="seat-input" id="sD1" /><label class="seat seat-available" for="sD1" aria-label="Seat D1 available">D1</label>
+                <label class="seat seat-reserved" aria-label="Seat D2 reserved" aria-disabled="true">D2</label>
+                <div class="seat-aisle" aria-hidden="true"></div>
+                <input type="checkbox" class="seat-input" id="sD3" /><label class="seat seat-available" for="sD3" aria-label="Seat D3 available">D3</label>
+                <input type="checkbox" class="seat-input" id="sD4" /><label class="seat seat-available" for="sD4" aria-label="Seat D4 available">D4</label>
+              </div>
+
+              <div class="seat-row" role="row">
+                <span class="row-label" aria-hidden="true">E</span>
+                <input type="checkbox" class="seat-input" id="sE1" /><label class="seat seat-available" for="sE1" aria-label="Seat E1 available">E1</label>
+                <input type="checkbox" class="seat-input" id="sE2" checked /><label class="seat seat-selected-demo" for="sE2" aria-label="Seat E2 selected">E2</label>
+                <div class="seat-aisle" aria-hidden="true"></div>
+                <input type="checkbox" class="seat-input" id="sE3" /><label class="seat seat-available" for="sE3" aria-label="Seat E3 available">E3</label>
+                <input type="checkbox" class="seat-input" id="sE4" /><label class="seat seat-available" for="sE4" aria-label="Seat E4 available">E4</label>
+              </div>
+
+              <div class="seat-row" role="row">
+                <span class="row-label" aria-hidden="true">F</span>
+                <label class="seat seat-reserved" aria-label="Seat F1 reserved" aria-disabled="true">F1</label>
+                <label class="seat seat-reserved" aria-label="Seat F2 reserved" aria-disabled="true">F2</label>
+                <div class="seat-aisle" aria-hidden="true"></div>
+                <input type="checkbox" class="seat-input" id="sF3" /><label class="seat seat-available" for="sF3" aria-label="Seat F3 available">F3</label>
+                <input type="checkbox" class="seat-input" id="sF4" /><label class="seat seat-available" for="sF4" aria-label="Seat F4 available">F4</label>
+              </div>
+
+              <!-- Back row (5 seats) -->
+              <div class="seat-row seat-back-row" role="row">
+                <span class="row-label" aria-hidden="true">G</span>
+                <input type="checkbox" class="seat-input" id="sG1" /><label class="seat seat-available" for="sG1" aria-label="Seat G1 available">G1</label>
+                <input type="checkbox" class="seat-input" id="sG2" /><label class="seat seat-available" for="sG2" aria-label="Seat G2 available">G2</label>
+                <input type="checkbox" class="seat-input" id="sG3" /><label class="seat seat-available" for="sG3" aria-label="Seat G3 available">G3</label>
+                <input type="checkbox" class="seat-input" id="sG4" /><label class="seat seat-available" for="sG4" aria-label="Seat G4 available">G4</label>
+                <input type="checkbox" class="seat-input" id="sG5" /><label class="seat seat-available" for="sG5" aria-label="Seat G5 available">G5</label>
+              </div>
+            </div>
+
+            <div class="bus-back" aria-hidden="true">
+              <div class="bus-back-bar"></div>
+            </div>
+          </div>
+
+          <div class="seat-summary" aria-live="polite">
+            <h3 class="seat-summary-title">Selection Summary</h3>
+            <div class="seat-summary-row">
+              <span>Selected Seats</span>
+              <span class="seat-summary-value">C1, E2</span>
+            </div>
+            <div class="seat-summary-row">
+              <span>Seat Count</span>
+              <span class="seat-summary-value">2</span>
+            </div>
+            <div class="seat-summary-row">
+              <span>Price per Seat</span>
+              <span class="seat-summary-value">LKR 480</span>
+            </div>
+            <div class="seat-summary-row total-row">
+              <span>Total</span>
+              <span class="seat-summary-total">LKR 960</span>
+            </div>
+            <a href="#booking-summary" class="btn btn-primary" style="width:100%;text-align:center;">Continue</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SPECIAL OFFERS ===================== -->
+    <section class="section offers-section" id="offers" aria-labelledby="offers-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">🎁 Special Offers</span>
+          <h2 id="offers-heading" class="section-title">Save More Today</h2>
+          <p class="section-subtitle">Exclusive deals and discounts for every traveler</p>
+        </div>
+
+        <div class="offers-grid">
+          <article class="offer-card offer-cashback" aria-label="Cashback offer">
+            <div class="offer-emoji" aria-hidden="true">💰</div>
+            <div class="offer-badge">Limited Time</div>
+            <h3 class="offer-title">20% Cashback</h3>
+            <p class="offer-desc">Get 20% cashback on your first booking via SwiftRide app. Max cashback LKR 500.</p>
+            <div class="offer-code">
+              <span>Code:</span><strong>FIRST20</strong>
+            </div>
+            <button class="btn btn-offer" type="button">Claim Offer</button>
+          </article>
+
+          <article class="offer-card offer-seasonal" aria-label="Seasonal discount">
+            <div class="offer-emoji" aria-hidden="true">🌸</div>
+            <div class="offer-badge">Seasonal</div>
+            <h3 class="offer-title">Summer Sale</h3>
+            <p class="offer-desc">Flat 15% off on all hill country routes this summer. Valid till 31 Aug.</p>
+            <div class="offer-code">
+              <span>Code:</span><strong>SUMMER15</strong>
+            </div>
+            <button class="btn btn-offer" type="button">Claim Offer</button>
+          </article>
+
+          <article class="offer-card offer-student" aria-label="Student discount">
+            <div class="offer-emoji" aria-hidden="true">🎓</div>
+            <div class="offer-badge">Students</div>
+            <h3 class="offer-title">Student Discount</h3>
+            <p class="offer-desc">10% off with valid student ID. Apply at checkout. No expiry.</p>
+            <div class="offer-code">
+              <span>Code:</span><strong>STUDENT10</strong>
+            </div>
+            <button class="btn btn-offer" type="button">Claim Offer</button>
+          </article>
+
+          <article class="offer-card offer-holiday" aria-label="Holiday package">
+            <div class="offer-emoji" aria-hidden="true">🏖️</div>
+            <div class="offer-badge">Package</div>
+            <h3 class="offer-title">Holiday Bundle</h3>
+            <p class="offer-desc">Round-trip tickets + hotel stay combo. Save up to LKR 2000 per person.</p>
+            <div class="offer-code">
+              <span>Code:</span><strong>HOLIDAY25</strong>
+            </div>
+            <button class="btn btn-offer" type="button">Claim Offer</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TRIP PLANS ===================== -->
+    <section class="section trips-section" aria-labelledby="trips-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">✈️ Personalized Plans</span>
+          <h2 id="trips-heading" class="section-title">Trips Curated for You</h2>
+          <p class="section-subtitle">Based on popular choices and seasonal highlights</p>
+        </div>
+
+        <div class="trips-grid">
+          <article class="trip-card" aria-label="Kandy cultural trip">
+            <div class="trip-img trip-img-1" aria-hidden="true">
+              <span class="trip-category">Cultural</span>
+            </div>
+            <div class="trip-body">
+              <h3 class="trip-dest">Kandy Explorer</h3>
+              <p class="trip-desc">Temple of the Tooth, Peradeniya Gardens, and the vibrant Kandy Lake. A cultural immersion.</p>
+              <div class="trip-meta">
+                <span>⏱ 3h 30m travel</span>
+                <span>💸 Budget: LKR 1,500</span>
+              </div>
+              <div class="trip-highlights">
+                <span class="highlight-chip">🏛️ Heritage</span>
+                <span class="highlight-chip">🌿 Nature</span>
+                <span class="highlight-chip">🎭 Culture</span>
+              </div>
+              <a href="#" class="btn btn-outline-sm">Plan This Trip</a>
+            </div>
+          </article>
+
+          <article class="trip-card" aria-label="Galle beach trip">
+            <div class="trip-img trip-img-2" aria-hidden="true">
+              <span class="trip-category">Beach</span>
+            </div>
+            <div class="trip-body">
+              <h3 class="trip-dest">Galle Fort Weekend</h3>
+              <p class="trip-desc">Historic Dutch Fort, pristine beaches, boutique cafes, and artisan shops.</p>
+              <div class="trip-meta">
+                <span>⏱ 2h 15m travel</span>
+                <span>💸 Budget: LKR 1,200</span>
+              </div>
+              <div class="trip-highlights">
+                <span class="highlight-chip">🏖️ Beach</span>
+                <span class="highlight-chip">🏰 Fort</span>
+                <span class="highlight-chip">☕ Cafes</span>
+              </div>
+              <a href="#" class="btn btn-outline-sm">Plan This Trip</a>
+            </div>
+          </article>
+
+          <article class="trip-card" aria-label="Nuwara Eliya hill country trip">
+            <div class="trip-img trip-img-3" aria-hidden="true">
+              <span class="trip-category">Hill Country</span>
+            </div>
+            <div class="trip-body">
+              <h3 class="trip-dest">Nuwara Eliya Escape</h3>
+              <p class="trip-desc">Cool misty mountains, endless tea estates, Gregory Lake, and strawberry farms.</p>
+              <div class="trip-meta">
+                <span>⏱ 6h travel</span>
+                <span>💸 Budget: LKR 2,000</span>
+              </div>
+              <div class="trip-highlights">
+                <span class="highlight-chip">🍃 Tea</span>
+                <span class="highlight-chip">🌄 Mountains</span>
+                <span class="highlight-chip">🎿 Leisure</span>
+              </div>
+              <a href="#" class="btn btn-outline-sm">Plan This Trip</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== REVIEWS ===================== -->
+    <section class="section reviews-section" aria-labelledby="reviews-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">⭐ Reviews</span>
+          <h2 id="reviews-heading" class="section-title">What Travelers Say</h2>
+          <p class="section-subtitle">Genuine feedback from our community of travelers</p>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card" aria-label="Review by Ashan Perera">
+            <div class="review-header">
+              <div class="reviewer-avatar" aria-hidden="true">AP</div>
+              <div>
+                <h3 class="reviewer-name">Ashan Perera</h3>
+                <div class="reviewer-meta">Colombo → Kandy</div>
+              </div>
+              <div class="review-stars" aria-label="5 out of 5 stars">
+                <span aria-hidden="true">★★★★★</span>
+              </div>
+            </div>
+            <p class="review-text">"Booked my ticket in under 2 minutes! The seat selection is so intuitive. The bus was clean, punctual and the AC worked perfectly. Will definitely book again."</p>
+            <span class="review-date">2 days ago</span>
+          </article>
+
+          <article class="review-card" aria-label="Review by Nimesha Silva">
+            <div class="review-header">
+              <div class="reviewer-avatar av-orange" aria-hidden="true">NS</div>
+              <div>
+                <h3 class="reviewer-name">Nimesha Silva</h3>
+                <div class="reviewer-meta">Galle → Colombo</div>
+              </div>
+              <div class="review-stars" aria-label="4 out of 5 stars">
+                <span aria-hidden="true">★★★★☆</span>
+              </div>
+            </div>
+            <p class="review-text">"Great experience overall. The student discount saved me a lot! The app is smooth and the booking process is clear. Only minor feedback – more bus options for early morning would be great."</p>
+            <span class="review-date">1 week ago</span>
+          </article>
+
+          <article class="review-card" aria-label="Review by Kasun Fernando">
+            <div class="review-header">
+              <div class="reviewer-avatar av-green" aria-hidden="true">KF</div>
+              <div>
+                <h3 class="reviewer-name">Kasun Fernando</h3>
+                <div class="reviewer-meta">Colombo → Jaffna</div>
+              </div>
+              <div class="review-stars" aria-label="5 out of 5 stars">
+                <span aria-hidden="true">★★★★★</span>
+              </div>
+            </div>
+            <p class="review-text">"Long journey but very comfortable in the sleeper bus! The meal included was surprisingly good. SwiftRide made the entire experience stress-free from booking to arrival."</p>
+            <span class="review-date">2 weeks ago</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BOOKING SUMMARY ===================== -->
+    <section class="section booking-section" id="bookings" aria-labelledby="booking-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">📋 Booking Summary</span>
+          <h2 id="booking-heading" class="section-title">Confirm Your Journey</h2>
+          <p class="section-subtitle">Review your booking details before payment</p>
+        </div>
+
+        <div class="booking-wrapper">
+          <div class="booking-details" role="region" aria-label="Booking details">
+            <h3 class="booking-section-title">Journey Details</h3>
+            <div class="booking-row">
+              <span class="booking-label">Route</span>
+              <span class="booking-value">Colombo → Kandy</span>
+            </div>
+            <div class="booking-row">
+              <span class="booking-label">Operator</span>
+              <span class="booking-value">Lanka Travels Express</span>
+            </div>
+            <div class="booking-row">
+              <span class="booking-label">Bus Type</span>
+              <span class="booking-value"><span class="badge badge-ac">AC</span> Luxury</span>
+            </div>
+            <div class="booking-row">
+              <span class="booking-label">Travel Date</span>
+              <span class="booking-value">Saturday, 07 June 2026</span>
+            </div>
+            <div class="booking-row">
+              <span class="booking-label">Departure</span>
+              <span class="booking-value">06:00 AM</span>
+            </div>
+            <div class="booking-row">
+              <span class="booking-label">Arrival</span>
+              <span class="booking-value">09:30 AM</span>
+            </div>
+            <div class="booking-row">
+              <span class="booking-label">Seats</span>
+              <span class="booking-value">C1, E2</span>
+            </div>
+
+            <h3 class="booking-section-title mt">Passenger Details</h3>
+            <div class="passenger-form">
+              <div class="passenger-group">
+                <h4 class="passenger-title">Passenger 1 – Seat C1</h4>
+                <div class="form-row-2">
+                  <div class="form-group-sm">
+                    <label for="p1-name" class="form-label-sm">Full Name</label>
+                    <input type="text" id="p1-name" class="form-input-sm" placeholder="As per NIC" aria-label="Passenger 1 full name" />
+                  </div>
+                  <div class="form-group-sm">
+                    <label for="p1-nic" class="form-label-sm">NIC / Passport</label>
+                    <input type="text" id="p1-nic" class="form-input-sm" placeholder="ID Number" aria-label="Passenger 1 ID number" />
+                  </div>
+                </div>
+              </div>
+              <div class="passenger-group">
+                <h4 class="passenger-title">Passenger 2 – Seat E2</h4>
+                <div class="form-row-2">
+                  <div class="form-group-sm">
+                    <label for="p2-name" class="form-label-sm">Full Name</label>
+                    <input type="text" id="p2-name" class="form-input-sm" placeholder="As per NIC" aria-label="Passenger 2 full name" />
+                  </div>
+                  <div class="form-group-sm">
+                    <label for="p2-nic" class="form-label-sm">NIC / Passport</label>
+                    <input type="text" id="p2-nic" class="form-input-sm" placeholder="ID Number" aria-label="Passenger 2 ID number" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fare Summary -->
+          <div class="fare-summary glass-card" aria-label="Fare summary">
+            <h3 class="fare-title">Fare Breakdown</h3>
+
+            <div class="fare-row">
+              <span>Base Fare (×2)</span>
+              <span>LKR 960</span>
+            </div>
+            <div class="fare-row">
+              <span>Service Fee</span>
+              <span>LKR 50</span>
+            </div>
+            <div class="fare-row fare-discount">
+              <span>Promo (FIRST20)</span>
+              <span>– LKR 192</span>
+            </div>
+            <div class="fare-divider" aria-hidden="true"></div>
+            <div class="fare-row fare-total">
+              <span>Total Payable</span>
+              <span>LKR 818</span>
+            </div>
+
+            <div class="payment-methods" aria-label="Payment methods">
+              <p class="payment-label">Pay With</p>
+              <div class="payment-icons">
+                <div class="payment-chip">💳 Card</div>
+                <div class="payment-chip">📱 Mobile</div>
+                <div class="payment-chip">🏦 Bank</div>
+              </div>
+            </div>
+
+            <div class="promo-input-row">
+              <input type="text" class="form-input-sm promo-input" placeholder="Promo code" value="FIRST20" aria-label="Enter promo code" />
+              <button class="btn btn-apply" type="button">Apply</button>
+            </div>
+
+            <button class="btn btn-primary btn-confirm" type="button" aria-label="Confirm booking and proceed to payment">
+              🔒 Confirm &amp; Pay
+            </button>
+
+            <p class="booking-note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Secure 256-bit SSL encryption
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== APP BANNER ===================== -->
+    <section class="app-banner" aria-labelledby="app-heading">
+      <div class="container app-banner-inner">
+        <div class="app-text">
+          <span class="section-badge" style="background: rgba(255,255,255,0.2); color: white;">📱 Mobile App</span>
+          <h2 id="app-heading" class="app-title">Travel Smarter with<br/>SwiftRide App</h2>
+          <p class="app-subtitle">Download the app and get exclusive deals, real-time bus tracking, and instant e-tickets.</p>
+          <div class="app-buttons">
+            <a href="#" class="app-btn" aria-label="Download on App Store">
+              <span aria-hidden="true">🍎</span>
+              <div><small>Download on</small><strong>App Store</strong></div>
+            </a>
+            <a href="#" class="app-btn" aria-label="Get it on Google Play">
+              <span aria-hidden="true">▶️</span>
+              <div><small>Get it on</small><strong>Google Play</strong></div>
+            </a>
+          </div>
+        </div>
+        <div class="app-visual" aria-hidden="true">
+          <div class="phone-mockup">
+            <div class="phone-screen">
+              <div class="phone-status-bar"></div>
+              <div class="phone-app-preview">
+                <div class="phone-header-bar"></div>
+                <div class="phone-search-bar"></div>
+                <div class="phone-card pc1"></div>
+                <div class="phone-card pc2"></div>
+                <div class="phone-nav-bar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a href="#" class="logo logo-white" aria-label="SwiftRide home">
+            <span class="logo-icon" aria-hidden="true">🚌</span>
+            <span class="logo-text">Swift<span class="logo-accent">Ride</span></span>
+          </a>
+          <p class="footer-tagline">Sri Lanka's most trusted bus ticket booking platform. Travel smart, travel safe.</p>
+          <div class="social-links" aria-label="Social media links">
+            <a href="#" class="social-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Twitter / X">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.41 19.1C5.12 19.56 12 19.56 12 19.56s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.34z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Company -->
+        <nav class="footer-col" aria-label="Company links">
+          <h3 class="footer-col-title">Company</h3>
+          <ul role="list">
+            <li><a href="#" class="footer-link">About Us</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+            <li><a href="#" class="footer-link">Press Room</a></li>
+            <li><a href="#" class="footer-link">Blog</a></li>
+            <li><a href="#" class="footer-link">Partners</a></li>
+          </ul>
+        </nav>
+
+        <!-- Support -->
+        <nav class="footer-col" aria-label="Support links">
+          <h3 class="footer-col-title">Help Center</h3>
+          <ul role="list">
+            <li><a href="#" class="footer-link">FAQs</a></li>
+            <li><a href="#" class="footer-link">Cancellation Policy</a></li>
+            <li><a href="#" class="footer-link">Refund Status</a></li>
+            <li><a href="#" class="footer-link">Track My Bus</a></li>
+            <li><a href="#" class="footer-link">Contact Support</a></li>
+          </ul>
+        </nav>
+
+        <!-- Legal -->
+        <nav class="footer-col" aria-label="Legal links">
+          <h3 class="footer-col-title">Legal</h3>
+          <ul role="list">
+            <li><a href="#" class="footer-link">Terms &amp; Conditions</a></li>
+            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+            <li><a href="#" class="footer-link">Cookie Policy</a></li>
+            <li><a href="#" class="footer-link">Accessibility</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 SwiftRide Pvt Ltd. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
