@@ -53,19 +53,6 @@ To accelerate my learning and optimize my development workflow, I utilized AI to
 
 ---
 
-## 📸 Screenshots
-
-### Home Page
-![Home Page](screenshots/home-page.png)
-
-### Booking Section
-![Booking Section](screenshots/booking-section.png)
-
-### Mobile Responsive View
-![Mobile View](screenshots/mobile-view.png)
-
----
-
 ## 📂 Project Structure
 
 ```text
